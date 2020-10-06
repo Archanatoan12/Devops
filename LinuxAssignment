@@ -1,0 +1,149 @@
+Objective:- Assignments will help trainees to understand the basics of unix command and how to explore and use it.
+
+DO NOT copy paste commands from internet, you can take help of the Unix in-built command manual.
+
+Be Honest to yourself!
+
+Important command and option to learn unix commands:-
+man Command
+Example:-
+man ls
+
+--help Option
+Example:-
+ls --help
+
+NOTE:- Always use "man" command before using any unix commands and read about it and its options and how to use it.
+
+
+
+1.List the contents of a directory and their attributes
+Ans: ls -l
+
+2.Long list the content with file, directory ownership, permissions,sizes, etc…
+Ans: ls -l
+
+3.Display the size of the file in human readable format
+Ans: ls -l -h
+ 
+4.Show all files and folders including hidden one
+Ans: ls -l -a -h
+ 
+5.list directories recursively.
+Ans: ls -R
+ 
+
+6.Sort the files by size with largest at the top
+Ans: ls -la
+ 
+
+7.Sort the files by last time modified displaying the newest first.
+Ans: ls -lt
+ 
+8.Diplay the location of a program/command, where it is installed.
+Ans: which 
+9.Which command is used to switch directory from one to another
+Ans: cd
+10.List all the environment variables set for the current shell environment
+Ans: env
+ 
+11.Did you notice something in the output of "env" command?
+Ans: We can get all environmental variables (shell type, user name , pwd, etc)
+12.Which command is used to print the text or any variables value in the Console/Terminal?
+Ans: echo
+13.Print the value of the env variable "PATH" on the console
+Ans: echo $PATH
+ 
+14.Is linux a case-sensitive operating system?
+Ans: Yes
+15.Is, "Ls" same as "ls"?
+Ans: No
+16.Display your currently logged in user
+Ans: whoami
+ 
+17.how do you change the currrently logged in user to another user?
+Ans: su -username
+18.Which command is used to leave a shell environment that you are currently logged in to?
+Ans: chsh
+19.How do you reboot the system?
+Ans: init 6
+20.How do you shutdown the system?
+Ans: init 0
+21.Display all the major running processes in the system
+Ans: top
+ 
+
+22.Understand the output of command used in above question of displaying processes, explain the meaning of each column and what data it displays?
+Ans: top displays the current time.followed by the system uptime, which tells us the time for which the system has been running.the number of active user sessions
+PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+PID: Process ID
+USER: username
+PR: shows the scheduling priority of the process from the perspective of the kernel
+NI: nice” value of a process,The nice value affects the priority of a process
+VIRT: total amount of memory consumed by a process
+RES:  the memory consumed by the process in RAM
+MEM: expresses this value as a percentage of the total RAM available
+SHR:  the amount of memory shared with other processes
+
+23.Display the name of the system kernel
+Ans: uname -s
+ 
+24.display the kernel release number
+Ans: uname -v
+ 
+25.display teh machine type of the current kernel
+Ans: uname -i
+ 
+26.Display the name of the operating system that the kernel is running on
+Ans: uname -o
+ 
+27.Display all info that uname command can show.
+Ans: uname -o
+ 
+28.Display the name of directory that you are currently pointing to
+Ans: pwd
+ 
+29.change the current directory to another directory that you have in your system.
+Ans: cd absolute path name where the directory is present.
+
+30.Go up one directory
+Ans: cd ..
+
+31.Return to last directory
+Ans: cd
+
+32.change the current directory to home(logged in user's) directory
+Ans: cd ~user name
+
+
+33.How to check all the command used from the prompt (Command History)
+Ans: history
+
+34.In which file the history of commands are stored in?
+Ans: .bash_history
+
+35.How many lines of history does the system keep and from where you can change it?
+Ans: 500
+
+36.How we see all our env variables?
+Ans: env
+
+37.How we see all env variables in alphabical order?
+Ans: env | sort
+
+38.What Format does the env var and its values are stored?
+Ans: Variables have following format
+       KEY=value
+       KEY="Some other value"
+       KEY=value1:value2
+       
+39.How do you create your own varible?
+Ans: : To create a variable merely choose a lower-case name for the variable and give it a value using an equal (=) sign. Make certain that there are no spaces on either side of the equal sign.
+ex: greeting="hello"
+Here i created greeting as a variable name.
+
+
+
+
+
+ 
