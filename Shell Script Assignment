@@ -27,4 +27,28 @@ echo 'username is ' $MYUSERNAME
 echo 'password is ' $MYPASSWORD
 echo 'Start time '  $STARTOFSCRIPT
 echo 'End time '    $ENDOFSCRIPT
+
+3. Develop a script that creates, sets and displays two variables to the terminal when run. Within this script, add comments to explain what the script is doing, what each variable is and, using inline comments, what each command is doing.
+Ans:
+#! bin/bash
+echo " creating two variables"
+MYUSERNAME="archana"
+MY_MESSAGE="Hello world"
+echo "first variable is: $MYUSERNAME"
+echo "second variable is: $MY_MESSAGE"
+ 
+4. Create a simple script that does the following:
+
+Echo a full sentence to the terminal
+Echo a different full sentence, but redirect it to /dev/null
+
+Run and display the results and make sure the statements appear where intended.
+Ans:
+
+#! /bin/bash
+
+echo "Echo a full sentence to the terminal"
+echo "Echo a different full sentence, but redirect it to /dev/null"
+ 
+
  
