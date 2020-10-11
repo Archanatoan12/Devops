@@ -19,10 +19,10 @@ NOTE:- Always use "man" command before using any unix commands and read about it
 
 1.List the contents of a directory and their attributes
 Ans: ls -l
-
+ 
 2.Long list the content with file, directory ownership, permissions,sizes, etc…
 Ans: ls -l
-
+ 
 3.Display the size of the file in human readable format
 Ans: ls -l -h
  
@@ -105,45 +105,126 @@ Ans: pwd
  
 29.change the current directory to another directory that you have in your system.
 Ans: cd absolute path name where the directory is present.
-
 30.Go up one directory
 Ans: cd ..
-
 31.Return to last directory
 Ans: cd
-
 32.change the current directory to home(logged in user's) directory
 Ans: cd ~user name
 
-
 33.How to check all the command used from the prompt (Command History)
 Ans: history
-
 34.In which file the history of commands are stored in?
 Ans: .bash_history
-
 35.How many lines of history does the system keep and from where you can change it?
 Ans: 500
+36.How can you modify bash's history behaviour
+Ans: Edit the ~/.bashrc file and add the following line:
+$ PROMPT_COMMAND='history -a'
 
-36.How we see all our env variables?
+37.Display all the commands entered so far, now, try to run a particular command from the history list without typing that command.
+NOTE:- TAB key is your friend when it comes to command completion and having long file and directory names autocompleted at the bash prompt for you. JUST BE LAZY AND USE TAB KEY FOR AUTO COMPLETION ;-)
+38.What are the different types of shell and where are they used and how do we use them?
+Ans:
+ Bourne Shell : It is faster and more preferred. It lacks features for interactive use like the ability to recall previous commands
+C Shell      :It includes helpful programming features like built-in arithmetic and C-like expression syntax
+Korn Shell   : It includes features like built-in arithmetic and C-like arrays, functions, and string-manipulation facilities.It is faster than C shell. itis compatible with script written for C shell.
+Bourne-Again Shell: It is compatible to the Bourne shell. It includes features from Korn and Bourne shell
+39.What is the difference between login shell and non-login shell?
+Ans:
+login shell: A login shell is the first process that executes under your user ID when you log in for an interactive session
+non-login shell: When you log in on a text console, or through SSH, or with su -, you get an interactive login shell 
+40.How do we start login shell and non-login shell?
+Ans: loginshell=yes : Place in .profile file
+Non loginshell : These shells don't read .login or .profile. In addition, bash allows a nonlogin shell to read ~/.bashrc or not
+41.What happens when you start a login shell (which files are read and used and Why)?
+Ans: it first reads and executes commands from the file /etc/profile, if that file exists. After reading that file, it looks for ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order, and reads and executes commands from the first one that exists and is readable
+42.What happens when you start a non-login shell (Which files are read and used and Why)?
+Ans: no login means only prices can be run
+While shell login ID disabled. Only files with full perm and own perm can be read
+
+43.What are Shell Configuration Files, why do we need it?
+Ans: The /etc/profile file – it stores system-wide environment configurations and startup programs for login setup. All configurations that you want to apply to all system users’ environments should be added in this file.
+Explain the Order of file usage from the system/user's home directory when user logs in to the System.
+44.Explain the Order of file usage from the system/user's home directory when user logs in to the System.
+Ans: 
+45.What are Shell Variables, list major shell variables and what do they represent?
+Ans: variable is a character string to which we assign a value. The value assigned could be a number, text, filename, device, or any other type of data.
+A variable is nothing more than a pointer to the actual data. The shell enables you to create, assign, and delete variables
+1.Defining Variables
+2.Accessing Values
+3.Read-only Variables
+4.Unsetting Variables
+46.How we see all our env variables?
 Ans: env
-
-37.How we see all env variables in alphabical order?
+47.How we see all env variables in alphabical order?
 Ans: env | sort
-
-38.What Format does the env var and its values are stored?
+48.What Format does the env var and its values are stored?
 Ans: Variables have following format
        KEY=value
        KEY="Some other value"
        KEY=value1:value2
-       
-39.How do you create your own varible?
+
+49.How do you create your own varible?
 Ans: : To create a variable merely choose a lower-case name for the variable and give it a value using an equal (=) sign. Make certain that there are no spaces on either side of the equal sign.
 ex: greeting="hello"
 Here i created greeting as a variable name.
+50.How do you start a new bash shell?
+Ans: bash -c 'gnome-terminal -x cd /absolute-path && program_nam
+51.Difference between Local/Shell variables to Global Variable
+Ans: 1.Local variable is declared inside a function whereas Global variable is declared outside the function.
+      2.Local variables are created when the function has started execution and is lost when the function terminates, on the other hand, Global variable is created as execution starts and is lost when the program ends
 
+55.is Globbing? Explain in depth with examples?
+Ans: The Bash shell feature that is used for matching or expanding specific types of patterns is called globbing. Globbing is mainly used to match filenames or searching for content in a file
+  ls -l ????.txt
 
-
-
-
+56.List all entries with extension ".sh"
+Ans: ls -l *.sh
  
+
+57.List all entries with numbers in it.
+Ans: ls -l [1-5] 
+58.List all entries that starts with a character and ends with a number
+Ans: ls -l {?????.sh,*st.txt}, ls a*+(5|7)
+59.List all entries that name length more than 5 characters
+Ans: ls -l {?????.sh}
+60.What is Quoting? and Why do we need it?
+Ans: Quoting is used to remove the special meaning of certain characters or words to the shell. Quoting can be used to disable special treatment for special characters, to prevent reserved words from being recognized as such, and to prevent parameter expansion
+
+61.Write few(minimum 3) unique examples that shows, how a particular problem is solved using Quoting.
+Ans: 
+
+62.How do you find a particular files/directories based on a particular search criteria?
+HINT:- look for commands -> locate, find and whereis
+
+63.Write major difference between locate, find and whereis?
+Ans:  differences between locate, find, and whereis: whereis: will search only particular paths to find binaries and or manpages. The manpages tells you where whereis looks. locate: locate uses a database created by an updatedb to efficiently locate files.
+
+64.How Globbing is different from locate, find and whereis?
+Ans: differences between locate, find, and whereis: whereis: will search only particular paths to find binaries and or manpages. The manpages tells you where whereis looks. locate: locate uses a database created by an updatedb to efficiently locate files.
+
+
+65.Explain the Linux File System.
+Ans: Linux file system is generally a built-in layer of a Linux operating system used to handle the data management of the storage. It helps to arrange the file on the disk storage. It manages the file name, file size, creation date, and much more information about a file.
+
+
+66.Explain absolute and Relative Paths
+Ans: pwd
+
+67.What are the different ways of creating a File in linux System? Write an example of each and the difference between them.
+Ans: Touch command
+Cat command
+Echo command
+Printf command
+Nano text editor
+Vi text editor
+Vim text editor
+
+68.In how many ways we can delete the files from linux system? write an example of each and teh difference between them.
+Ans: rm filename.txt  or rm file1.txt file2.txt file3.txt
+69.Archiving files using linux command, write a command to archive set of files from linux commands.
+Ans: tar cf archive.tar file1 file2 file3
+
+70.Extract the archived files from the above step.
+Ans: tar xf archive.tar
