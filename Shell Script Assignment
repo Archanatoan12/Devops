@@ -49,6 +49,164 @@ Ans:
 
 echo "Echo a full sentence to the terminal"
 echo "Echo a different full sentence, but redirect it to /dev/null"
+
+5. Write a script that runs three commands:
+ Evaluate an arithmetic expression
+Attempt to remove a file that does not exist in the current directory
+Evaluate another arithmetic expression
+Immediately after each command, echo the exit status of that command to the terminal using the appropriate variable to show success and failure exit codes.
+Ans:
+#!/bin/bash
+let x=5
+let y=10
+add=`expr $x + $y`
+echo "addition of x & y: $add"
+sub=`expr $y - $x`
+echo "substraction pf y & x: $sub"
+mul=`expr $x \* $y`
+echo "multiplication of x & y: $mul"
+div=`expr $y / $x`
+echo "division of y & x is: $div"
+
+if [[ -f "/home/ec2-user/line" ]]
+then
+    echo "This file exists on your filesystem."
+fi
+ 
+
+6. Write a script that evaluates and displays the following arithmetic operations:
+Add two numbers
+Add two numbers and multiply by a third, do not group anything 
+Add two numbers, grouped (changing order of precedence) and multiply by a third
+Keep in mind special characters and/or escape characters as needed.
+Ans:
+#!/bin/bash
+let x=5
+let y=10
+let z=2
+add=`expr $x + $y`
+echo "addition of x & y: $add"
+mul=`expr $x + $y \* $z`
+echo "multiplication of x, y & z: $mul"
+let mulgrp="$(( x * ( y + z ) ))"
+echo "multiplication of x, y & z: $mulgrp"
+ 
+
+7.  Write a script that will use command substitution to dynamically set variable values:
+
+TODAYSDATE - should contain date/time stamp when executed
+USERFILES - the results of a find run on the /home directory to list all files owned by 'user' account
+Additionally, set two aliases:
+TODAY - should be an alias for the 'date' command
+UFILES - should be an alias to the full command used to set the variable USERFILES above
+Finally, display all variables and alias values when the script is run.
+Ans:
+# !/bin/bash
+TODAY=$(date)
+HOST=$(hostname)
+echo "-----------------------------------------------------"
+echo "Date: $TODAY                     Host:$HOST"
+echo "-----------------------------------------------------"
+# add rest code...
+ 
+8. Create a script that interacts with the user. You will want to prompt the user to enter the following information (which you will capture and place into the following variables):
+FIRSTNAME
+LASTNAME
+USERAGE
+Greet the user with their name and current age displayed and then calculate and display their age in 10 years.
+Ans:
+# !/bin/bash
+echo -n "Enter your FIRSTNAME please ? "
+read FIRSTNAME
+echo -n "Enter your LASTNAME please ? "
+read LASTNAME
+echo -n "Enter your USERAGE please ? "
+read USERAGE
+echo " Hi $FIRSTNAME $LASTNAME your age is $USERAGE "
+ 
+9. Write a script intended to iterate through an array called SERVERLIST containing at least four values (server names). Display all four values to the terminal when run.
+Ans: 
+#!/bin/bash
+SERVERLIST=(host1,host2,host3,host4)
+echo "${SERVERLIST[*]}"
+ 
+
+10. Create a script that, when run, will accept two command line values as arguments. These arguments should be a username and password and assigned to two variables in the script named appropriately. Finally, echo those values out to the terminal when run to indicate they were read and assigned as expected.
+Ans: 
+echo -n "Enter your Username: "
+read User
+echo -n "Enter your Password: "
+read Pass
+echo "your Username is: $User"
+echo "Your Password is: $Pass"
+ 
+11. Create a script that interacts with the user. Prompt them to guess a secret number between 1 and 5. Read the guess from the terminal and assign it to a variable. Using the 'if' statement from the course, test that value to determine if they guessed the right number (you choose the correct value). If they do, display a success message, otherwise do nothing.
+Ans:
+#! /bin/bash
+echo -n "Enter a number between 1 to 5: "
+read number
+echo -n "Enter secret number between 1 to 5:"
+read secretnumber
+
+if [ $number == $secretnumber ]
+then
+echo 'Success Message'
+else
+echo 'Nothing'
+fi
+ 
+12. Write a script that will prompt the user to enter a number between 1 and 3. Capture that number in a variable and then test that variable. Be sure to display the variable and it's value as appropriate within an if/then/else statement where the final statement will display if they did not enter a number between 1 and 3 telling them they failed to follow instructions. Redirect errors from each of the tests to /dev/null (to prevent script errors from showing if text is entered for example).
+Ans:
+a=1
+b=2
+c=3
+echo -n "Enter a number between 1 to 3: "
+read number
+if [ $number == $a ] || [ $number == $b ] || [ $number == $c ]
+then
+echo "You entered a correct number between 1 to 3"
+else
+echo "You didnot entered a number between 1 to 3"
+fi
+ 
+13.  Write a script that assigns a variable that contains a list of all shell scripts (*.sh) in the current directory (command redirection). Using the 'for'statement from the course, iterate through that list of files and display the filename of each and cat out the contents to the terminal.
+Ans:
+for FILE in *; do cat $FILE; done
+ 
+14. Develop a simple three item menu to display on the terminal. Your script, upon display of the menu, should prompt the user to choose one of the three available options. Using the 'case' statement from the course, display three unique messages depending on which number they chose, with a catch all message letting them know if they went outside the bounds of instructions.
+Ans:
+echo "Enter a number: "
+read number
+case $number in
+[0-9])
+echo “you have entered a single digit number”
+;;
+[0-9][0-9])
+echo “you have entered a single digit number”
+;;
+[0-9][1-9][1-9])
+echo “you have entered a three-digit number”
+;;
+*)
+echo “your entry does not match any of the conditions”
+esac
+ 
+
+16. Create a simple text file containing a list of super heros (or some names if preferred), use at least four values, one per line in the file.
+Write a bash shell script that then reads that file and displays it line by line on the terminal window.
+Ans:
+#!/bin/bash
+FILE="/home/ec2-user/File/herosname.txt"
+echo "*** File - $FILE contents ***"
+cat $FILE
+ 
+18. Create a simple text file at the command prompt. This file should contain three values - CPU, Memory and Disk space for an imaginary system, all on one line and delimited with a '|' character.
+Write a script to read that file and prompt the user for the delimiter value. Use that delimiter along with the IFS variable and read those delimited values into three appropriately named variables. Finally, display them with labels, one each per line.
+Ans:
+sar - check CPU usage
+sar - check memory usage
+ 
+
  
 
  
