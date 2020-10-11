@@ -1,0 +1,287 @@
+Python Assignment
+1. Search online for the Python documentation for the len() function. It will be on a web page titled “Built-in Functions.” Skim the list of other functions Python has, look up what the round() function does, and experiment with it in the interactive shell.
+Look up the round() and abs() functions on the Internet, and find out what they do. Experiment with them in the interactive shell.
+Ans:
+len() function is an inbuilt function in Python programming language that returns the length of the string, the len() to get the length of the given string, array, list, tuple, dictionary, etc.
+syntax: len(string)
+ To find the length of the given string :
+str1 = " Welcome to python assignment"
+print(" The length of the string is: " len(str1))
+
+To find the length of the given list:
+list1 = ["Tim","Charlie","Tiffany","Robert"]
+print("The length of the list is", len(list1))
+
+To find the length of a given tuple:
+Tup = ('Jan','feb','march')
+print("The length of the tuple is", len(Tup))
+
+ To find the length of the Dictionary:
+Dict = {'Tim': 18,'Charlie':12,'Tiffany':22,'Robert':25}
+print("The length of the Dictionary is", len(Dict))
+
+To find the length of the array:
+arr1 = ['Tim','Charlie','Tiffany','Robert']
+print("The length of the Array is", len(arr1))
+OUTPUT: 
+The length of the string is: 29
+The length of the list is: 4
+The length of the tuple is: 3
+The length of the Dictionary is: 4
+The length of the Array is: 4
+
+Python round() Function
+The round() function returns a floating point number that is a rounded version of the specified number, with the specified number of decimals. The default number of decimals is 0, meaning that the function will return the nearest integer.
+print(round(15))                                       # for integers      
+ print(round(51.6))                                 # for floating point
+print(round(51.5))  
+print(round(51.4))
+OUTPUT: 
+15
+52
+52
+51
+The abs() function is used to return the absolute value of a number.
+ float = -54.26                                                                                           # floating point number 
+print('Absolute value of float is:', abs(float))  
+int = -94                                                                                                     # An integer 
+print('Absolute value of integer is:', abs(int)) 
+ complex = (3 - 4j)                                                                                # A complex number 
+print('Absolute value or Magnitude of complex is:', abs(complex)) 
+OUTPUT:
+bsolute value of float is: 54.26
+Absolute value of integer is: 94
+Absolute value or Magnitude of complex is: 5.0
+
+2.  Write a function named collatz() that has one parameter named number. 
+If number is even, then collatz() should print number // 2 and return this value. 
+If number is odd, then collatz() should print and return 3 * number + 1.
+Ans:
+import sys
+def collatz(number):
+    if number % 2 == 0:           
+        result = number // 2
+    elif number % 2 == 1:         
+        result = 3 * number + 1
+ while result == 1:            
+        print(result)
+        sys.exit()                
+while result != 1:            
+        print(result)
+        number = result           .
+        return collatz(number)    
+print('Enter a number: ')         
+try:
+    number = int(input())         
+    collatz(number)
+except ValueError:
+    print('You must enter an integer type.')
+OUTPUT:
+Enter a number: 
+3
+10
+5
+16
+8
+4
+2
+1
+Process finished with exit code 0
+
+3.  Say you have a list value like this:
+spam = ['apples', 'bananas', 'tofu', 'cats']
+Write a function that takes a list value as an argument and returns a string with all the items separated by a comma and a space, with and inserted before the last item. 
+For example, passing the previous spam list to the function would return 'apples, bananas, tofu, and cats'. But your function should be able to work with any list value passed to it.
+Ans :
+def listToString(list):
+   for i in range(len(list)):
+        print(''+list[i]+', ')
+spam = ['apples', 'bananas', 'tofu', 'cats']
+listToString(spam)
+OUTPUT:
+apples, 
+bananas, 
+tofu, 
+cats,
+4.  Say you have a list of lists where each value in the inner lists is a one-character string, like this:
+grid = [['.', '.', '.', '.', '.', '.'],
+ ['.', 'O', 'O', '.', '.', '.'],
+ ['O', 'O', 'O', 'O', '.', '.'],
+ ['O', 'O', 'O', 'O', 'O', '.'],
+ ['.', 'O', 'O', 'O', 'O', 'O'],
+ ['O', 'O', 'O', 'O', 'O', '.'],
+ ['O', 'O', 'O', 'O', '.', '.'],
+ ['.', 'O', 'O', '.', '.', '.'],
+ ['.', '.', '.', '.', '.', '.']]
+You can think of grid[x][y] as being the character at the x- and y-coordinates of a “picture” drawn with text characters. The (0, 0) origin will be in the upper-left corner, the x-coordinates increase going right, and the y-coordinates increase going down.
+Ans:
+grid = [['.', '.', '.', '.', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['.', 'O', 'O', 'O', 'O', 'O'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['.', '.', '.', '.', '.', '.']]
+newString = ''
+for i in range(len(grid)):
+ newString += str(grid[i][0])
+newString1 = '\n'
+for i in range(len(grid)):
+ newString1 += str(grid[i][1])
+newString2 = '\n'
+for i in range(len(grid)):
+newString2 += str(grid[i][2])
+newString3 = '\n'
+for i in range(len(grid)):
+newString3 += str(grid[i][3])
+newString4 = '\n'
+for i in range(len(grid)):
+newString4 += str(grid[i][4])
+newString5 = '\n'
+for i in range(len(grid)):
+newString5 += str(grid[i][5])
+print(newString+newString1+newString2+newString3+newString4+newString5)
+OUTPUT:
+..OO.OO..
+.OOOOOOO.
+.OOOOOOO.
+..OOOOO..
+...OOO...
+....O....
+Process finished with exit code 0
+5. You are creating a fantasy video game.
+The data structure to model the player’s inventory will be a dictionary where the keys are string values describing the item in the inventory and the value is an integer value detailing how many of that item the player has. 
+For example, the dictionary value {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12} means the player has 1 rope, 6 torches, 42 gold coins, and so on.
+inventory = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+def display_inventory(lst):
+  total_items = 0
+  for i in lst:
+    print(str(lst[i]) + " " + str(i))
+    total_items += lst[i]
+  print ("Total number of items: " + (str(total_items)))
+display_inventory(inventory)
+OUTPUT:
+1 rope
+6 torch
+42 gold coin
+1 dagger
+12 arrow
+Total number of items: 62
+7.  Write a function named printTable() that takes a list of lists of strings and displays it in a well-organized table with each column right-justified.
+Assume that all the inner lists will contain the same number of strings.
+For example, the value could look like this:
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+ ['Alice', 'Bob', 'Carol', 'David'],
+ ['dogs', 'cats', 'moose', 'goose']]
+Ans:
+def printTable(tableData):
+    colWidths = [0] * len(tableData)
+    for i, columnData in enumerate(tableData):
+        for rowItem in columnData:
+            itemLength = len(rowItem)
+            if itemLength > colWidths[i]:
+                colWidths[i] = itemLength
+    numCols = len(tableData)
+    numRows = len(tableData[0])
+     for rowIndex in range(numRows):
+     for colIndex in range(numCols):
+     print(tableData[colIndex][rowIndex].rjust(colWidths[colIndex]), end=' ')
+     print()
+      tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
+             ['dogs', 'cats', 'moose', 'goose']]
+printTable(tableData)
+OUTPUT:
+  apples Alice  dogs 
+ oranges   Bob  cats 
+cherries Carol moose 
+  banana David goose 
+  
+  ===================================================================================================
+  Python Assignment:
+1. Strong Password Detection
+Write a function that uses regular expressions to make sure the password string it is passed is strong. A strong password is defined as one that is at least eight characters long, contains both uppercase and lowercase characters, and has at least one digit. You may need to test the string against multiple regex patterns to validate its strength.
+Ans:
+def uppercase_check(password):
+    if re.search('[A-Z]', password): #atleast one uppercase character
+        return True
+    return False
+def lowercase_check(password):
+    if re.search('[a-z]', password): #atleast one lowercase character
+        return True
+    return False
+def digit_check(password):
+    if re.search('[0-9]', password): #atleast one digit
+        return True
+    return False
+def user_input_password_check():
+    password = input("Enter password : ")
+        #atleast 8 character long
+    if len(password) >= 8 and uppercase_check(password) and lowercase_check(password) and digit_check(password):
+        print("Strong Password")
+    else:
+        print("Weak Password")
+user_input_password_check()
+OUTPUT:
+Enter password : Archana2ruse
+Strong Password
+Process finished with exit code 0
+
+2. Regex Version of strip()
+Write a function that takes a string and does the same thing as the strip() string method. If no other arguments are passed other than the string to strip, then whitespace characters will be removed from the beginning and end of the string. Otherwise, the characters specified in the second argument to the function will be removed from the string.
+Ans: def regex_strip(s, chars = None):
+
+    if chars == None:
+        strip_left = re.compile(r'^\s*')
+        strip_right = re.compile(r'\s*$')
+
+        s = re.sub(strip_left, "", s)
+        s = re.sub(strip_right, "", s)
+    else:
+        strip_left = re.compile(r'^[' + re.escape(chars) + r']*')
+        strip_right = re.compile(r'[' + re.escape(chars) + r']*$')
+        s = re.sub(strip_left, "", s)
+        s = re.sub(strip_right, "", s)
+    return s
+3.  Create a Mad Libs program that reads in text files and lets the user add their own text anywhere the word ADJECTIVE, NOUN, ADVERB, or VERB appears in the text file.
+Ans: import re
+
+file = open('.\\files\\c8_text.txt', 'r')
+content = file.read()
+mad_lib_words = list(content.split())
+file.close()
+
+adj_regex = re.compile(r'ADJECTIVE')
+noun_regex = re.compile(r'NOUN')
+adv_regex = re.compile(r'ADVERB')
+verb_regex = re.compile(r'VERB')
+
+result_file = open('.\\files\\c8_text_result.txt', 'w')
+result_string = ""
+for word in mad_lib_words:
+    if adj_regex.match(word):
+        word = adj_regex.sub(input("Give an adjective: "), word)
+    elif noun_regex.match(word):
+        word = noun_regex.sub(input("Give a noun: "), word)
+    elif verb_regex.match(word):
+        word = verb_regex.sub(input("Give a verb: "), word)
+    elif adv_regex.match(word):
+        word = adv_regex.sub(input("Give a adverb: "), word)
+    result_string += word + " "
+    result_file.write(word + " ")
+
+print(result_string)
+result_file.close()
+
+
+
+
+ 
+ 
+
+ 
+
+ 
+
