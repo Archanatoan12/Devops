@@ -1,0 +1,19 @@
+Git Assignment
+
+1. Install and configure git on the provided workstation.
+Clone the repository from https://github.com/satyensingh/content-git-quickstart.git to /home/<user-name>/play and create a new branch for your story.
+Add a new story file to your local repository in your new branch.
+Add an entry to the file contributers.txt in your new branch.
+Commit your changes using the message "airplane story".
+
+Ans:  git clone https://github.com/satyensingh/content-git-quickstart.git
+cd content-git-quickstart
+git branch <branch-name>-->creating the branch
+git checkout <branch-name>-->switching the new branch created
+touch <file-name>.txt-->creating the file
+echo "contents">'<filename>.txt'-->adding contents to the file
+git status-->to check the status of the file
+git add . -->to add the changes to the features branch
+Add an entry to the file contributers.txt in your new branch.
+echo "This is my secondfile" 'contributers.txt'-->adding contents to file
+git commit -m "ariplane story"  -->addinng commits to the repository
